@@ -127,10 +127,19 @@ hr {
     padding: 1rem 1.2rem !important;
     margin-bottom: 10px !important;
 }
-[data-testid="stChatMessage"] p {
-    color: #c9d1d9 !important;
+[data-testid="stChatMessage"] p,
+[data-testid="stChatMessage"] li,
+[data-testid="stChatMessage"] ol,
+[data-testid="stChatMessage"] ul,
+[data-testid="stChatMessage"] span,
+[data-testid="stChatMessage"] div {
+    color: #e6edf3 !important;
     font-size: 0.9rem !important;
     line-height: 1.75 !important;
+}
+[data-testid="stChatMessage"] strong {
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
 
 /* CHAT INPUT */
