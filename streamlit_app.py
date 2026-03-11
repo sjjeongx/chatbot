@@ -134,8 +134,15 @@ hr {
 }
 
 /* CHAT INPUT */
-[data-testid="stChatInput"] {
+[data-testid="stChatInput"],
+[data-testid="stChatInput"] > div,
+[data-testid="stChatInput"] textarea,
+.stChatInputContainer,
+.stChatInputContainer > div {
     background: #161b22 !important;
+    border-color: #21262d !important;
+}
+[data-testid="stChatInput"] {
     border: 1px solid #21262d !important;
     border-radius: 16px !important;
 }
@@ -143,17 +150,27 @@ hr {
     border-color: #38bd94 !important;
     box-shadow: 0 0 0 3px rgba(56,189,148,0.08) !important;
 }
-[data-testid="stChatInputTextArea"] {
+[data-testid="stChatInputTextArea"],
+[data-testid="stChatInput"] textarea {
+    background: #161b22 !important;
     color: #e6edf3 !important;
     font-size: 0.88rem !important;
+    caret-color: #38bd94 !important;
 }
-[data-testid="stChatInputTextArea"]::placeholder { color: #3d4a5c !important; }
+[data-testid="stChatInputTextArea"]::placeholder,
+[data-testid="stChatInput"] textarea::placeholder { color: #3d4a5c !important; }
 [data-testid="stChatInputSubmitButton"] > button {
     background: #38bd94 !important;
     border-radius: 10px !important;
+    color: #0d1117 !important;
 }
 [data-testid="stChatInputSubmitButton"] > button:hover {
     background: #5eead4 !important;
+}
+/* Bottom bar background */
+.stBottom, .stBottom > div, [data-testid="stBottom"], [data-testid="stBottom"] > div {
+    background: #0d1117 !important;
+    border-top: 1px solid #21262d !important;
 }
 
 /* FIX: Hide broken Material Icon text in avatars */
