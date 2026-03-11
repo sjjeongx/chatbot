@@ -265,7 +265,8 @@ else:
 
     # CHAT HISTORY
     for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
+        avatar = "🧳" if msg["role"] == "user" else "✈️"
+        with st.chat_message(msg["role"], avatar=avatar):
             st.markdown(msg["content"])
 
     # PENDING SUGGESTION
@@ -273,9 +274,9 @@ else:
         prompt = st.session_state.pending
         st.session_state.pending = None
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
+        with st.chat_message("user", avatar="🧳"):
             st.markdown(prompt)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar="✈️"):
             stream = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "system", "content": SYSTEM_PROMPT}] + st.session_state.messages,
@@ -288,9 +289,9 @@ else:
     # CHAT INPUT
     if prompt := st.chat_input("여행지, 일정, 음식, 비자 등 무엇이든 물어보세요 ✈️"):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
+        with st.chat_message("user", avatar="🧳"):
             st.markdown(prompt)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar="✈️"):
             stream = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "system", "content": SYSTEM_PROMPT}] + st.session_state.messages,
