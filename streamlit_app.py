@@ -9,173 +9,214 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Jost', sans-serif !important;
-}
+* { font-family: 'Outfit', sans-serif !important; }
 
+/* BACKGROUND */
 .stApp {
-    background: #f5efe6;
+    background: #0d1117;
 }
 
-/* Header */
-.travel-header {
+/* HEADER */
+.tm-header {
+    padding: 48px 0 32px;
     text-align: center;
-    padding: 2rem 0 1rem;
 }
-.travel-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: #3d2b1f;
-    margin: 0;
-    line-height: 1;
-}
-.travel-header h1 span { color: #c4714a; font-style: italic; }
-.travel-header p {
-    font-size: 0.78rem;
+.tm-badge {
+    display: inline-block;
+    background: rgba(56,189,148,0.12);
+    border: 1px solid rgba(56,189,148,0.25);
+    color: #38bd94;
+    font-size: 0.7rem;
+    font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #8a7060;
-    margin-top: 8px;
+    padding: 5px 14px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+.tm-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #f0f4f8;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+}
+.tm-title span {
+    background: linear-gradient(90deg, #38bd94, #5eead4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.tm-sub {
+    font-size: 0.92rem;
+    color: #6b7a8d;
     font-weight: 300;
 }
-.divider {
-    width: 60px; height: 1px;
-    background: linear-gradient(to right, transparent, #c4714a, transparent);
-    margin: 12px auto 0;
-}
 
-/* API input */
-.stTextInput > label { color: #8a7060 !important; font-size: 0.8rem !important; letter-spacing: 1px; }
+/* API INPUT */
+.stTextInput > label {
+    color: #4a5568 !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+}
 .stTextInput > div > div > input {
-    background: white !important;
-    border: 1px solid #e8d9c4 !important;
-    border-radius: 40px !important;
-    color: #3d2b1f !important;
-    padding: 0.55rem 1.2rem !important;
-    font-family: 'Jost', sans-serif !important;
-    font-size: 0.85rem !important;
+    background: #161b22 !important;
+    border: 1px solid #21262d !important;
+    border-radius: 12px !important;
+    color: #e6edf3 !important;
+    padding: 0.65rem 1.1rem !important;
+    font-size: 0.87rem !important;
 }
 .stTextInput > div > div > input:focus {
-    border-color: #c4714a !important;
-    box-shadow: 0 0 0 3px rgba(196,113,74,0.08) !important;
+    border-color: #38bd94 !important;
+    box-shadow: 0 0 0 3px rgba(56,189,148,0.1) !important;
 }
+.stTextInput > div > div > input::placeholder { color: #3d4a5c !important; }
 
-/* Suggest section */
-.suggest-label {
-    font-size: 0.7rem;
+/* SUGGEST LABEL */
+.suggest-head {
+    font-size: 0.68rem;
+    font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #8a7060;
-    margin-bottom: 12px;
-    margin-top: 28px;
-    font-weight: 500;
+    color: #38bd94;
+    margin: 36px 0 14px;
 }
 
-/* Suggest buttons */
+/* SUGGEST BUTTONS */
 div[data-testid="column"] .stButton > button {
-    background: white !important;
-    border: 1px solid #e8d9c4 !important;
-    border-radius: 16px !important;
-    color: #3d2b1f !important;
-    font-family: 'Jost', sans-serif !important;
-    font-size: 0.82rem !important;
+    background: #161b22 !important;
+    border: 1px solid #21262d !important;
+    border-radius: 14px !important;
+    color: #c9d1d9 !important;
+    font-size: 0.81rem !important;
     font-weight: 400 !important;
-    padding: 0.85rem 1rem !important;
+    padding: 14px !important;
     text-align: left !important;
-    line-height: 1.45 !important;
-    transition: all 0.2s ease !important;
+    line-height: 1.5 !important;
     height: auto !important;
-    min-height: 72px !important;
+    min-height: 76px !important;
     width: 100% !important;
     white-space: normal !important;
+    transition: all 0.18s ease !important;
 }
 div[data-testid="column"] .stButton > button:hover {
-    border-color: #c4714a !important;
-    box-shadow: 0 6px 20px rgba(196,113,74,0.12) !important;
+    background: #1c2330 !important;
+    border-color: #38bd94 !important;
+    color: #f0f4f8 !important;
     transform: translateY(-2px) !important;
-    color: #c4714a !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
 }
 
-/* Chat messages */
+/* DIVIDER */
+hr {
+    border: none !important;
+    border-top: 1px solid #21262d !important;
+    margin: 28px 0 !important;
+}
+
+/* CHAT MESSAGES */
 [data-testid="stChatMessage"] {
-    background: white !important;
-    border: 1px solid #e8d9c4 !important;
-    border-radius: 18px !important;
+    background: #161b22 !important;
+    border: 1px solid #21262d !important;
+    border-radius: 16px !important;
     padding: 1rem 1.2rem !important;
-    margin-bottom: 8px !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04) !important;
+    margin-bottom: 10px !important;
+}
+[data-testid="stChatMessage"] p {
+    color: #c9d1d9 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.75 !important;
 }
 
-/* Chat input */
-[data-testid="stChatInputTextArea"] {
-    font-family: 'Jost', sans-serif !important;
-    color: #3d2b1f !important;
-}
+/* CHAT INPUT */
 [data-testid="stChatInput"] {
-    border: 1px solid #e8d9c4 !important;
-    border-radius: 40px !important;
-    background: white !important;
+    background: #161b22 !important;
+    border: 1px solid #21262d !important;
+    border-radius: 16px !important;
 }
 [data-testid="stChatInput"]:focus-within {
-    border-color: #c4714a !important;
-    box-shadow: 0 0 0 3px rgba(196,113,74,0.08) !important;
+    border-color: #38bd94 !important;
+    box-shadow: 0 0 0 3px rgba(56,189,148,0.08) !important;
+}
+[data-testid="stChatInputTextArea"] {
+    color: #e6edf3 !important;
+    font-size: 0.88rem !important;
+}
+[data-testid="stChatInputTextArea"]::placeholder { color: #3d4a5c !important; }
+[data-testid="stChatInputSubmitButton"] > button {
+    background: #38bd94 !important;
+    border-radius: 10px !important;
+}
+[data-testid="stChatInputSubmitButton"] > button:hover {
+    background: #5eead4 !important;
 }
 
-/* Info box */
+/* ASSISTANT / USER MESSAGE ACCENT */
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+    border-left: 3px solid #38bd94 !important;
+}
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
+    border-left: 3px solid #6366f1 !important;
+}
+
+/* INFO BOX */
 [data-testid="stAlert"] {
-    background: white !important;
-    border: 1px solid #e8d9c4 !important;
+    background: #161b22 !important;
+    border: 1px solid #21262d !important;
     border-radius: 14px !important;
-    color: #8a7060 !important;
+    color: #6b7a8d !important;
 }
 
-/* Hide streamlit branding */
+/* HIDE STREAMLIT UI */
 #MainMenu, footer, header { visibility: hidden; }
+.block-container { padding-top: 0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
-SYSTEM_PROMPT = """You are TravelMate, a professional AI travel concierge. Help users plan perfect trips.
+SYSTEM_PROMPT = """You are TravelMate, a world-class AI travel concierge. Your mission: help users plan unforgettable trips.
 
-Your expertise:
-- Destination recommendations with detailed info (attractions, food, culture, weather, best time to visit)
-- Day-by-day itinerary planning and route optimization  
-- Flight, accommodation, and transportation tips
-- Local food and restaurant recommendations
-- Budget planning and money-saving tips
-- Visa, travel documents, and safety information
-- Packing lists and travel preparation guides
-- Local culture, etiquette, and customs
+Expertise:
+- Destination recommendations with rich detail (must-see spots, hidden gems, culture, best season)
+- Day-by-day itinerary building with optimized routing
+- Flight, accommodation and local transport tips
+- Food guides from street food to fine dining
+- Budget planning and cost-saving strategies
+- Visa, entry requirements and safety info
+- Packing lists tailored to destination and duration
+- Local customs, etiquette and cultural tips
 
-Style: Be warm, enthusiastic, and practical. Use emojis naturally. Respond in Korean by default."""
+Tone: Enthusiastic, knowledgeable, concise. Use emojis naturally. Always respond in Korean."""
 
-SUGGESTED = [
-    ("🗼", "파리 3박 4일 완벽 일정 짜줘"),
+SUGGESTIONS = [
+    ("✈️", "파리 3박 4일 완벽 여행 일정"),
     ("🌸", "일본 교토 숨은 명소 추천"),
-    ("🏖️", "신혼여행지 베스트 추천"),
-    ("🌏", "동남아 여행지 TOP 5"),
-    ("💰", "유럽 저예산 여행 절약 팁"),
+    ("🏝️", "신혼여행지 베스트 5"),
+    ("🌏", "동남아 여행지 TOP 추천"),
+    ("💸", "유럽 저예산 절약 꿀팁"),
     ("🍜", "베트남 현지 음식 가이드"),
-    ("🎒", "배낭여행 필수 준비물 리스트"),
+    ("🎒", "배낭여행 준비물 리스트"),
     ("🛂", "태국·발리 비자 입국 정보"),
 ]
 
-# Header
+# HEADER
 st.markdown("""
-<div class="travel-header">
-  <h1>Travel<span>Mate</span></h1>
-  <p>AI 여행 플래너 &middot; Your Journey Starts Here</p>
-  <div class="divider"></div>
+<div class="tm-header">
+    <div class="tm-badge">✦ AI Travel Concierge</div>
+    <div class="tm-title">여행을 <span>더 쉽게</span>,<br>더 특별하게.</div>
+    <div class="tm-sub">목적지부터 일정, 음식, 예산까지 &mdash; 당신만의 여행을 설계해드립니다</div>
 </div>
 """, unsafe_allow_html=True)
 
-# API Key
+# API KEY
 openai_api_key = st.text_input("OPENAI API KEY", type="password", placeholder="sk-...")
 
 if not openai_api_key:
-    st.info("✈️  API 키를 입력하면 여행 플래너가 시작됩니다.")
+    st.info("🔑  API 키를 입력하면 TravelMate가 시작됩니다.")
 else:
     client = OpenAI(api_key=openai_api_key)
 
@@ -184,24 +225,24 @@ else:
     if "pending" not in st.session_state:
         st.session_state.pending = None
 
-    # Suggested questions (only when no messages)
+    # SUGGESTIONS
     if not st.session_state.messages:
-        st.markdown('<div class="suggest-label">✦ 추천 질문</div>', unsafe_allow_html=True)
-        rows = [SUGGESTED[:4], SUGGESTED[4:]]
-        for row in rows:
+        st.markdown('<div class="suggest-head">추천 질문</div>', unsafe_allow_html=True)
+        for row_start in range(0, len(SUGGESTIONS), 4):
+            row = SUGGESTIONS[row_start:row_start + 4]
             cols = st.columns(4)
             for col, (icon, text) in zip(cols, row):
                 with col:
-                    if st.button(f"{icon}\n{text}", key=f"s_{text}", use_container_width=True):
+                    if st.button(f"{icon}  {text}", key=f"sq_{text}", use_container_width=True):
                         st.session_state.pending = f"{icon} {text}"
-        st.markdown("<br/>", unsafe_allow_html=True)
+        st.markdown("<hr/>", unsafe_allow_html=True)
 
-    # Display messages
+    # CHAT HISTORY
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    # Handle suggested question
+    # PENDING SUGGESTION
     if st.session_state.pending:
         prompt = st.session_state.pending
         st.session_state.pending = None
@@ -211,17 +252,14 @@ else:
         with st.chat_message("assistant"):
             stream = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=[{"role": "system", "content": SYSTEM_PROMPT}] + [
-                    {"role": m["role"], "content": m["content"]}
-                    for m in st.session_state.messages
-                ],
+                messages=[{"role": "system", "content": SYSTEM_PROMPT}] + st.session_state.messages,
                 stream=True,
             )
             response = st.write_stream(stream)
         st.session_state.messages.append({"role": "assistant", "content": response})
         st.rerun()
 
-    # Chat input
+    # CHAT INPUT
     if prompt := st.chat_input("여행지, 일정, 음식, 비자 등 무엇이든 물어보세요 ✈️"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -229,10 +267,7 @@ else:
         with st.chat_message("assistant"):
             stream = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=[{"role": "system", "content": SYSTEM_PROMPT}] + [
-                    {"role": m["role"], "content": m["content"]}
-                    for m in st.session_state.messages
-                ],
+                messages=[{"role": "system", "content": SYSTEM_PROMPT}] + st.session_state.messages,
                 stream=True,
             )
             response = st.write_stream(stream)
