@@ -156,7 +156,33 @@ hr {
     background: #5eead4 !important;
 }
 
-/* ASSISTANT / USER MESSAGE ACCENT */
+/* FIX: Hide broken Material Icon text in avatars */
+[data-testid="chatAvatarIcon-assistant"],
+[data-testid="chatAvatarIcon-user"] {
+    font-size: 0 !important;
+    overflow: hidden !important;
+}
+[data-testid="chatAvatarIcon-assistant"] *,
+[data-testid="chatAvatarIcon-user"] * {
+    font-size: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Replace with clean colored dot avatars */
+[data-testid="chatAvatarIcon-assistant"] {
+    background: #38bd94 !important;
+    border-radius: 50% !important;
+    width: 32px !important; height: 32px !important;
+    flex-shrink: 0 !important;
+}
+[data-testid="chatAvatarIcon-user"] {
+    background: #6366f1 !important;
+    border-radius: 50% !important;
+    width: 32px !important; height: 32px !important;
+    flex-shrink: 0 !important;
+}
+
+/* CHAT MESSAGE ACCENT LINE */
 [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
     border-left: 3px solid #38bd94 !important;
 }
